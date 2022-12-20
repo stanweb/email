@@ -8,6 +8,7 @@ router.post("/", function (req, res, next) {
   const { FirstName, LastName, Email, Companyname, Subject, Message } =
     req.body;
   const mailTo = mailCondition(Subject);
+  console.log(req.body);
   emailVariables(
     Subject,
     FirstName,
