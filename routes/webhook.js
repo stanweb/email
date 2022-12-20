@@ -5,15 +5,15 @@ const { emailVariables } = require("../nodemailer/nodemailer");
 
 /* GET users listing. */
 router.post("/", function (req, res, next) {
-  const { First_Name, Last_Name, Email, Company_name, Subject, Message } =
+  const { FirstName, LastName, Email, Companyname, Subject, Message } =
     req.body;
   const mailTo = mailCondition(Subject);
   emailVariables(
     Subject,
-    First_Name,
-    Last_Name,
+    FirstName,
+    LastName,
     Email,
-    Company_name,
+    Companyname,
     Message,
     mailTo
   );
