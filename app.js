@@ -10,7 +10,6 @@ const app = express();
 
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json({ limit: "200mb" }));
-
 app.use("/", usersRouter);
 
 // catch 404 and forward to error handler

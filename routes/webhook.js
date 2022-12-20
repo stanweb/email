@@ -17,7 +17,6 @@ router.post("/", function (req, res, next) {
     Message,
     mailTo
   );
-  console.log(First_Name);
   res.status(200).send();
 });
 
