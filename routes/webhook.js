@@ -1,7 +1,11 @@
 const express = require("express");
 const router = express.Router();
 const { mailCondition } = require("../mailcondition/mailCondition");
-const { emailVariables } = require("../nodemailer/nodemailer");
+const {
+  emailVariables,
+  replyEmail,
+  infinitiEmail,
+} = require("../nodemailer/nodemailer");
 
 /* GET users listing. */
 router.post("/", function (req, res, next) {
@@ -23,6 +27,16 @@ router.post("/", function (req, res, next) {
     message,
     mailTo
   );
+  replyEmail(email);
+  res.status(200).send();
+});
+router.post("/infinity", (req, res) => {
+  const {
+    Name: name,
+    "Phone Number": phoneNumber,
+    "Email Address": email,
+  } = req.body;
+  infinitiEmail(email, name, phoneNumber);
   res.status(200).send();
 });
 

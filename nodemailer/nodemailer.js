@@ -16,7 +16,7 @@ module.exports.emailVariables = (
   email,
   companyname,
   message,
-  to = "digitalandinovation@dtbafrica.com"
+  to = "mutuastanley03@gmail.com"
 ) => {
   const mailOptions = {
     from: "info@astraafrica.co", // sender address
@@ -26,6 +26,37 @@ module.exports.emailVariables = (
   };
 
   transporter.sendMail(mailOptions, (error, info) => {
+    if (error) {
+      console.log(error);
+    } else {
+      console.log(`Email sent: ${info.response}`);
+    }
+  });
+};
+
+module.exports.replyEmail = (to) => {
+  const reply = {
+    from: "info@astraafrica.co",
+    to,
+    subject: "Message Recived",
+    html: "We have recived your message and we will get back to you as soon as possible.",
+  };
+  transporter.sendMail(reply, (error, info) => {
+    if (error) {
+      console.log(error);
+    } else {
+      console.log(`Email sent: ${info.response}`);
+    }
+  });
+};
+module.exports.infinitiEmail = (email, name, phoneNumber) => {
+  const reply = {
+    from: "info@astraafrica.co",
+    to: "mutuastanley03@gmail.com",
+    subject: "Message Recived",
+    html: `<p>${name} is intrested in Infiniti africa</p> <br> <p> Email: ${email}</p> <br> <p> Phone Number: ${phoneNumber}</p>`,
+  };
+  transporter.sendMail(reply, (error, info) => {
     if (error) {
       console.log(error);
     } else {
