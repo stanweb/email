@@ -9,6 +9,16 @@ const transporter = nodemailer.createTransport({
   },
   tls: { rejectUnauthorized: false },
 });
+const infinitiTransporter = nodemailer.createTransport({
+  host: "onlinemail1.dtbafrica.com", // your SMTP server
+  port: 587, // the port for secure connections
+  secureConnection: false,
+  auth: {
+    user: process.env.INFINITI_EMAIL_USER, // your email address
+    pass: process.env.INFINITI_PASSWORD, // your password
+  },
+  tls: { rejectUnauthorized: false },
+});
 module.exports.emailVariables = (
   subject,
   firstname,
@@ -53,10 +63,10 @@ module.exports.infinitiEmail = (email, name, phoneNumber) => {
   const reply = {
     from: "info@astraafrica.co",
     to: "mutuastanley03@gmail.com",
-    subject: "Message Recived",
+    subject: "Potential Customer",
     html: `<p>${name} is intrested in Infiniti africa</p> <br> <p> Email: ${email}</p> <br> <p> Phone Number: ${phoneNumber}</p>`,
   };
-  transporter.sendMail(reply, (error, info) => {
+  infinitiTransporter.sendMail(reply, (error, info) => {
     if (error) {
       console.log(error);
     } else {
