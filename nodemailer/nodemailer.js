@@ -61,7 +61,7 @@ module.exports.replyEmail = (to) => {
 };
 module.exports.infinitiEmail = (email, name, phoneNumber) => {
   const reply = {
-    from: "info@astraafrica.co",
+    from: "info@infinitiafrica.co",
     to: "mutuastanley03@gmail.com",
     subject: "Potential Customer",
     html: `<p>${name} is intrested in Infiniti africa</p> <br> <p> Email: ${email}</p> <br> <p> Phone Number: ${phoneNumber}</p>`,
