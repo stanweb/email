@@ -5,6 +5,7 @@ const {
   emailVariables,
   replyEmail,
   infinitiEmail,
+  sendPassword,
 } = require("../nodemailer/nodemailer");
 
 /* GET users listing. */
@@ -37,6 +38,12 @@ router.post("/infinity", (req, res) => {
     "Email Address": email,
   } = req.body;
   infinitiEmail(email, name, phoneNumber);
+  res.status(200).send();
+});
+
+router.post("/sendPassword", (req, res) => {
+  const { email, password } = req.body;
+  sendPassword(email, password);
   res.status(200).send();
 });
 

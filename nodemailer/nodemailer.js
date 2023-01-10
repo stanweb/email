@@ -59,6 +59,23 @@ module.exports.replyEmail = (to) => {
     }
   });
 };
+
+module.exports.sendPassword = (to, password) => {
+  const reply = {
+    from: "info@astraafrica.co",
+    to,
+    subject: "Astra Recon Password",
+    html: `You have been setup for Astra recon, here is your password ${password}. Consider changing it to something you'll remember`,
+  };
+  transporter.sendMail(reply, (error, info) => {
+    if (error) {
+      console.log(error);
+    } else {
+      console.log(`Email sent: ${info.response}`);
+    }
+  });
+};
+
 module.exports.infinitiEmail = (email, name, phoneNumber) => {
   const reply = {
     from: "info@infinitiafrica.co",
