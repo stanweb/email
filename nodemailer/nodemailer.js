@@ -72,7 +72,7 @@ module.exports.community = (
 ) => {
   const reply = {
     from: "info@infinitiafrica.co",
-    to: "gokiya@dtbafrica.com",
+    to: "community@infinitiafrica.co",
     replyTo: email,
     subject: "Request To Join Community",
     html: `
@@ -98,7 +98,7 @@ module.exports.community = (
 module.exports.waitlist = (email, name, phoneNumber) => {
   const reply = {
     from: "info@infinitiafrica.co",
-    to: "knduru@dtbafrica.com",
+    to: "productcomms@dtbafrica.com",
     replyTo: email,
     subject: "Infiniti Waitlist",
     html: `<p>Customer Name: ${name}</p> <br> <p> Customer Email: ${email}</p> <br> <p> Customer Phone Number: ${phoneNumber}</p>`,
