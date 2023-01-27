@@ -2,10 +2,10 @@ const express = require("express");
 const router = express.Router();
 const { mailCondition } = require("../mailcondition/mailCondition");
 const {
-  emailVariables,
-  replyEmail,
-  infinitiEmail,
-  sendPassword,
+  astraEmail,
+  conactUs,
+  community,
+  waitlist,
 } = require("../nodemailer/nodemailer");
 
 /* GET users listing. */
@@ -19,31 +19,47 @@ router.post("/", function (req, res, next) {
     Message: message,
   } = req.body;
   const mailTo = mailCondition(subject);
-  emailVariables(
-    subject,
-    firstName,
-    lastName,
-    email,
-    companyName,
-    message,
-    mailTo
-  );
-  replyEmail(email);
+  astraEmail(subject, firstName, lastName, email, companyName, message, mailTo);
   res.status(200).send();
 });
-router.post("/infinity", (req, res) => {
+router.post("/contactUs", (req, res) => {
+  const {
+    et_pb_contact_firstname_0: firstName,
+    et_pb_contact_lastname_0: lastName,
+    et_pb_contact_email_0: email,
+    et_pb_contact_message_0: message,
+  } = req.body;
+  conactUs(email, firstName, lastName, message);
+  console.log(req.body);
+  res.status(200).send();
+});
+router.post("/community", (req, res) => {
+  const {
+    et_pb_contact_firstname_0: firstName,
+    et_pb_contact_lastname_0: lastName,
+    et_pb_contact_businessname_0: businessName,
+    et_pb_contact_phonenumber_0: phoneNumber,
+    et_pb_contact_email_0: email,
+    et_pb_contact_description_0: businessDescription,
+  } = req.body;
+  community(
+    email,
+    firstName,
+    lastName,
+    phoneNumber,
+    businessName,
+    businessDescription
+  );
+  res.status(200).send();
+});
+
+router.post("/waitlist", (req, res) => {
   const {
     Name: name,
     "Phone Number": phoneNumber,
     "Email Address": email,
   } = req.body;
-  infinitiEmail(email, name, phoneNumber);
-  res.status(200).send();
-});
-
-router.post("/sendPassword", (req, res) => {
-  const { email, password } = req.body;
-  sendPassword(email, password);
+  waitlist(email, name, phoneNumber);
   res.status(200).send();
 });
 

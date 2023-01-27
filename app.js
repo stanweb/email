@@ -1,4 +1,5 @@
 const createError = require("http-errors");
+const cors = require("cors");
 const express = require("express");
 if (process.env.NODE_ENV !== "production") {
   require("dotenv").config();
@@ -7,7 +8,7 @@ if (process.env.NODE_ENV !== "production") {
 const usersRouter = require("./routes/webhook");
 
 const app = express();
-
+app.use(cors());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json({ limit: "200mb" }));
 app.use("/", usersRouter);
