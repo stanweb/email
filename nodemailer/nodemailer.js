@@ -96,7 +96,7 @@ module.exports.waitlist = (email, name, phoneNumber) => {
   const reply = {
     from: "info@infinitiafrica.co",
     // to: "productcomms@dtbafrica.com",
-    to: "mutuastanley04@gmail.com",
+    to: "mutuastanley03@gmail.com",
     replyTo: email,
     subject: "Infiniti Waitlist",
     html: `<p>Customer Name: ${name}</p> <p> Customer Email: ${email}</p> <p> Customer Phone Number: ${phoneNumber}</p>`,
