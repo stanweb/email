@@ -33,7 +33,7 @@ module.exports.astraEmail = (
     to,
     replyTo: to,
     subject,
-    html: ` <p> Name: ${firstname} ${lastname}</p> <br> <p>Email: ${email}</p> <br> <p>Company name: ${companyname}</p> <br> <p>Message: ${message}</p>`,
+    html: ` <p> Name: ${firstname} ${lastname}</p> <p>Email: ${email}</p> <p>Company name: ${companyname}</p> <p>Message: ${message}</p>`,
   };
 
   transporter.sendMail(mailOptions, (error, info) => {
@@ -51,7 +51,7 @@ module.exports.conactUs = (email, firstName, lastName, message) => {
     to: "knduru@dtbafrica.com",
     replyTo: email,
     subject: "Infiniti Message",
-    html: `<p>Customer Name: ${firstName} ${lastName}</p> <br> <p> Customer Email: ${email}</p> <br> <p> Message: ${message}</p>`,
+    html: `<p>Customer Name: ${firstName} ${lastName}</p> <p> Customer Email: ${email}</p> <p> Message: ${message}</p>`,
   };
   infinitiTransporter.sendMail(reply, (error, info) => {
     if (error) {
@@ -77,12 +77,9 @@ module.exports.community = (
     subject: "Request To Join Community",
     html: `
     <p>Customer Name: ${firstName} ${lastName}</p>
-     <br>
      <p> Customer Email: ${email}</p>
-      <br>
       <p>Business Name: ${businessName}</p>
       <p> Business Description: ${businessDescription}</p>
-      <br>
       <p> Phone Number: ${phoneNumber}</p>
     `,
   };
@@ -98,10 +95,11 @@ module.exports.community = (
 module.exports.waitlist = (email, name, phoneNumber) => {
   const reply = {
     from: "info@infinitiafrica.co",
-    to: "productcomms@dtbafrica.com",
+    // to: "productcomms@dtbafrica.com",
+    to: "mutuastanley0@gmail.com",
     replyTo: email,
     subject: "Infiniti Waitlist",
-    html: `<p>Customer Name: ${name}</p> <br> <p> Customer Email: ${email}</p> <br> <p> Customer Phone Number: ${phoneNumber}</p>`,
+    html: `<p>Customer Name: ${name}</p> <p> Customer Email: ${email}</p> <p> Customer Phone Number: ${phoneNumber}</p>`,
   };
   infinitiTransporter.sendMail(reply, (error, info) => {
     if (error) {

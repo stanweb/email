@@ -55,9 +55,9 @@ router.post("/community", (req, res) => {
 
 router.post("/waitlist", (req, res) => {
   const {
-    Name: name,
-    "Phone Number": phoneNumber,
-    "Email Address": email,
+    et_pb_contact_name_0: name,
+    et_pb_contact_phonenumber_0: phoneNumber,
+    et_pb_contact_email_0: email,
   } = req.body;
   waitlist(email, name, phoneNumber);
   res.status(200).send();
